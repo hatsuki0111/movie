@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+@movie = Movie.new
+@movie.name = 'ハリーポッター'
+@movie.year = '2001'
+@movie.description = '魔法学校の映画'
+@movie.image_url = '/assets/HarryPotter.jpg'
+@movie.is_showing = 1
+@movie.save
