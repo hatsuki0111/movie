@@ -5,7 +5,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :year, :limit => 45 
       t.text :description
       t.string :image_url, :limit => 150
-      t.integer :is_showing, :null => false, :limit => 1
+      t.boolean :is_showing, :null => false,
 
       t.timestamps
     end

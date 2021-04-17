@@ -11,5 +11,5 @@
 @movie.year = '2001'
 @movie.description = '魔法学校の映画'
 @movie.image_url = '/assets/HarryPotter.jpg'
-@movie.is_showing = 1
+@movie.is_showing = true
 @movie.save
