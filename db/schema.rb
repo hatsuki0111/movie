@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_04_16_161837) do
 
-  create_table "movies", charset: "utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "year"
+  create_table "movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", limit: 160, null: false
+    t.string "year", limit: 45
     t.text "description"
-    t.string "image_url"
-    t.integer "is_showing"
+    t.string "image_url", limit: 150
+    t.boolean "is_showing", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
