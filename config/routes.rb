@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # namespace :admin do
-  #   resources :movies, :only => [:index, :new, :create]
+  #   resources :movies
   # end
 
   
@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get 'admin/movies/:id', to:'admin/movies#show'
 
+  get 'admin/movies/:id/edit', to:'admin/movies#edit'
+  patch 'admin/movies/:id', to:'admin/movies#update'
 
+#  DELETE /admin/movies/:id(.:format)       admin/movies#destroy
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

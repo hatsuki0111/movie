@@ -11,7 +11,7 @@
 
         <div>
         <%= post.label :year, '公開年' %>
-        <%= post.datetime_select :created_at %><br />
+        <%= post.datetime_select :year %><br />
         </div>
 
         <div>
@@ -21,12 +21,12 @@
 
         <div>
         <%= post.label :image_url, '画像URL' %>
-        <%= post.text_field :name %><br />
+        <%= post.text_field :image_url %><br />
         </div>
 
         <div>
         <%= post.label :is_showing, '上映' %>
-        <%= post.check_box :name %><br />
+        <%= post.check_box :is_showing %><br />
         </div>
 
 
