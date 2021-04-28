@@ -29,6 +29,7 @@ class Admin::MoviesController < ApplicationController
     end
    end
 
+
   #  def post_params
   #     params.require(:movie).permit(:name, :year, :description, :image_url, :is_showing)
   #  end
@@ -51,6 +52,17 @@ class Admin::MoviesController < ApplicationController
     else
       flash[:alert] = '映画情報を入力してください'
        redirect_to "/admin/movies/#{@puted.id}/edit"
+    end
+  end
+
+  def destroy
+    @movie = Movie.find_by(id: params[:id])
+
+    if @movie.destroy
+      redirect_to "/admin/movies",notice: '映画情報が削除されました'
+    else 
+      flash[:alert] = '映画情報の削除に失敗しました'
+       redirect_to "/admin/movies/#{@movie.id}/edit"
     end
   end
 

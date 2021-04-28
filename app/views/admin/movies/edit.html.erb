@@ -1,35 +1,38 @@
 <h1>edit page</h1>
+
 <%= render 'layouts/flash_message' %>
     <div>
-    <%= form_with url: "/admin/movies/#{@put.id}", model: @put do |put| %>
-    <%= render 'layouts/error_message_edit', model: put.object %>
+        <%= form_with url: "/admin/movies/#{@put.id}", model: @put do |put| %>
+        <%= render 'layouts/error_message_edit', model: put.object %>
     
         <div>
-        <%= put.label :name, 'タイトル' %>
-        <%= put.text_field :name, autofocus: true, :placeholder=>"name"%><br />
+            <%= put.label :name, 'タイトル' %>
+            <%= put.text_field :name, autofocus: true %><br />
         </div>
 
         <div>
-        <%= put.label :year, '公開年' %>
-        <%= put.text_field :year , :placeholder =>"year"%><br />
+            <%= put.label :year, '公開年' %>
+            <%= put.text_field :year %><br />
         </div>
 
         <div>
-        <%= put.label :description, '概要' %>
-        <%= put.text_area :description, :placeholder =>"description"%><br />
+            <%= put.label :description, '概要' %>
+            <%= put.text_area :description%><br />
         </div>
 
         <div>
-        <%= put.label :image_url, '画像URL' %>
-        <%= put.text_field :image_url, :placeholder =>"image_url"%><br />
+            <%= put.label :image_url, '画像URL' %>
+            <%= put.text_field :image_url %><br />
         </div>
 
         <div>
-        <%= put.label :is_showing, '上映' %>
-        <%= put.check_box :is_showing, :placeholder =>"is_showing"%><br />
+            <%= put.label :is_showing, '上映' %>
+            <%= put.check_box :is_showing %><br />
         </div>
 
-
-        <%= put.submit '更新' %>
+        <%= put.submit '更新' %><br />
+        
     <% end %>
+
+        <%= button_to '削除する', "/admin/movies/#{@put.id}", method: :"delete", data: { confirm: '削除しますか?', disable_with: 'loading...' } %>
     </div>
