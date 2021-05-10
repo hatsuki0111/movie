@@ -13,3 +13,5 @@
 @movie.image_url = 'HarryPotter.jpg'
 @movie.is_showing = true
 @movie.save
+
+
