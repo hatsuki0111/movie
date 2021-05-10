@@ -22,7 +22,7 @@ class Admin::MoviesController < ApplicationController
     # @posted = Movie.create(post_params)
    
     if @posted.save
-      redirect_to '/admin/movies' ,notice: '映画情報が送信されました'
+      redirect_to '/admin/movies' ,notice: '映画情報が作成されました'
     else
       flash[:alert] = '映画情報を入力してください'
        redirect_to '/admin/movies/new'

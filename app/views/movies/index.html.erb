@@ -1,21 +1,25 @@
 <h1>映画一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>画像</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @title_image.each do |ti| %>
-      <tr>
-        <td><%= ti.name %></td>
-        <td><%= image_tag ti.image_url %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_with method: :get, local: true do |f| %>
+        <div>
+            <%= f.text_field :search %><br />
+        </div>
+
+
+        <label>
+          <%= f.radio_button :is_showing, " " %>すべて
+        </label>
+        <label>
+          <%= f.radio_button :is_showing, "1" %>上映中
+        </label>
+        <label>
+          <%= f.radio_button :is_showing, "0" %>上映予定
+        </label>
+
+          <br />
+         <%= f.submit '検索' %>
+<% end %>
+<br />
 
 
 
@@ -33,7 +37,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @movie.each do |mv| %>
+    <% @movies.each do |mv| %>
 
       <tr>
       　<td><%= mv.id %></td>
@@ -42,7 +46,7 @@
         <td><%= mv.description %></td>
         <td><%= image_tag mv.image_url %></td>
         <td>
-        <% if mv.is_showing = true %>
+        <% if mv.is_showing == true %>
             上映中
         <% else %>
             上映予定

@@ -1,4 +1,7 @@
 <h1>管理者ページ一覧</h1>
+
+<%= render 'layouts/flash_message' %>
+
 <table>
   <thead>
     <tr>
@@ -21,7 +24,7 @@
         <td><%= mv.description %></td>
         <td><%= link_to("画像",mv.image_url) %> </td>
         <td>
-        <% if mv.is_showing = true %>
+        <% if mv.is_showing == true %>
             上映中
         <% else %>
             上映予定

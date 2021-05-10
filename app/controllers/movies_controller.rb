@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   def index
-    @movie = Movie.all
-    @title_image = Movie.select("name, image_url").limit(1)
+  
+    @search = params["search"]
+    @is_showing = params["is_showing"]
+    
+    @movies = Movie.search(@search, @is_showing)
   end
+
 end
