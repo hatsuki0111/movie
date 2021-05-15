@@ -14,4 +14,3 @@
 @movie.is_showing = true
 @movie.save
 
-

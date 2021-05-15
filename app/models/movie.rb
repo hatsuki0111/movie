@@ -4,16 +4,17 @@ class Movie < ApplicationRecord
     validates :description, presence: true, length: { maximum: 140 }
     validates :image_url, presence: true
 
+    has_many :schedules
 
   def self.search(search, is_showing)
     if search.present? && is_showing.present?
-        @movies = Movie.where(['name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"]).where(is_showing: "#{is_showing}")
+         Movie.where(['name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"]).where(is_showing: "#{is_showing}")
     elsif search.present?
-        @movies = Movie.where(['name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"])
+         Movie.where(['name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"])
     elsif is_showing.present?
-        @movies = Movie.where(is_showing: "#{is_showing}")
+         Movie.where(is_showing: "#{is_showing}")
     else
-        @movies = Movie.all
+         Movie.all
     end
   end
 end
