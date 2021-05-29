@@ -1,0 +1,27 @@
+<h1>個別上映スケジュール表示</h1>
+
+<table>
+  <thead>
+    <tr>
+        <td><p>作品ID</p></td>
+        <th><h2>作品名</h2></th>
+    </tr>
+  </thead>
+ <tbody>
+ <% @movies_schedules.zip(@schedule_id).each do |ms, sh_id| %>
+      <tr>
+      　<td><%= ms.id %></td>
+      　<td><%= ms.name %></td>
+      </tr>
+      <tr>
+       <td><ul>
+       <%= link_to(sh_id.id,"/admin/schedules/#{sh_id.id}/edit") %>
+       <%= hidden_field_tag :id, sh_id.id %>
+            <li><%= ms.start_time %></li>
+            <li><%= ms.end_time %></li>
+            </ul>
+        </td>
+        </tr>
+  </tbody>
+<% end %>
+</table>

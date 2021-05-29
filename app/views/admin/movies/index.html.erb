@@ -18,7 +18,7 @@
   <tbody>
     <% @movie.each do |mv| %>
       <tr>
-      　<td> <td><%= link_to("#{mv.id}","/admin/movies/#{mv.id}/edit") %></td>
+      　<td><%= link_to("#{mv.id}","/admin/movies/#{mv.id}/edit") %></td>
         <td><%= mv.name %></td>
         <td><%= mv.year %></td>
         <td><%= mv.description %></td>

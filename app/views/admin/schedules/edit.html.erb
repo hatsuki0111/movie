@@ -1,0 +1,21 @@
+<h1>映画情報の編集ページ</h1>
+
+<%= render 'layouts/flash_message' %>
+    <div>
+    <%= form_with url: "/admin/schedules/#{@put.movie_id}", model: @put do |put| %>
+        <%= render 'layouts/error_message_edit', model: put.object %>
+    
+        <div>
+            <%= put.label :start_time, '開始時間' %>
+            <%= put.time_field :start_time, autofocus: true %><br />
+        </div>
+
+        <div>
+            <%= put.label :end_time, '終了時間' %>
+            <%= put.time_field :end_time %><br />
+        </div>
+
+        <%= put.submit '更新' %><br />
+    <% end %>
+     <%= button_to '削除する', "/admin/schedules/#{@put.id}", method: :"delete", data: { confirm: '削除しますか?', disable_with: 'loading...' } %>
+    </div>

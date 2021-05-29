@@ -4,41 +4,19 @@
 
 <table>
   <tbody>
-      <tr>
-        <td><%= @sheets[0].row %></td>
-        <td><%= @sheets[0].column %></td>
-        <td><%= @sheets[1].row %></td>
-        <td><%= @sheets[1].column %></td>
-        <td><%= @sheets[2].row %></td>
-        <td><%= @sheets[2].column %></td>
-        <td><%= @sheets[3].row %></td>
-        <td><%= @sheets[3].column %></td>
-        <td><%= @sheets[4].row %></td>
-        <td><%= @sheets[4].column %></td>
-      </tr>
-      <tr>
-        <td><%= @sheets[5].row %></td>
-        <td><%= @sheets[5].column %></td>
-        <td><%= @sheets[6].row %></td>
-        <td><%= @sheets[6].column %></td>
-        <td><%= @sheets[7].row %></td>
-        <td><%= @sheets[7].column %></td>
-        <td><%= @sheets[8].row %></td>
-        <td><%= @sheets[8].column %></td>
-        <td><%= @sheets[9].row %></td>
-        <td><%= @sheets[9].column %></td>
-      </tr>
-      <tr>
-       <td><%= @sheets[10].row %></td>
-       <td><%= @sheets[10].column %></td>
-       <td><%= @sheets[11].row %></td>
-       <td><%= @sheets[11].column %></td>
-       <td><%= @sheets[12].row %></td>
-       <td><%= @sheets[12].column %></td>
-       <td><%= @sheets[13].row %></td>
-       <td><%= @sheets[13].column %></td>
-       <td><%= @sheets[14].row %></td>
-       <td><%= @sheets[14].column %></td>
-      </tr>
+  <% @sheets.each_slice(5) do |sh1 ,sh2,sh3,sh4,sh5| %>
+  <tr>
+        <td><%= "|"+"#{sh1.row}"%></td>
+        <td><%= "#{sh1.column}" +"|"%></td>
+         <td><%= "|"+"#{sh2.row}"%></td>
+        <td><%= "#{sh2.column}"+"|"%></td>
+         <td><%= "|"+"#{sh3.row}"%></td>
+        <td><%= "#{sh3.column}"+"|"%></td>
+        <td><%= "|"+"#{sh4.row}"%></td>
+        <td><%= "#{sh4.column}"+"|"%></td>
+        <td><%= "|"+"#{sh5.row}"%></td>
+        <td><%= "#{sh5.column}"+"|"%></td>
+  </tr>
+  <% end %>
   </tbody>
 </table>

@@ -8,14 +8,14 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
       t.index ["movie_id"], name: "movie_id_idx"
     end
-    create_table :schedules do |t|
+    # create_table :schedules do |t|
 
-      t.references:movie, :null => false, index: true, foreign_key: true, visible: true, on_delete: :restrict, on_update: :restrict
-      t.time:start_time, :null => false
-      t.time:end_time, :null => false
+    #   t.references:movie, :null => false, index: true, foreign_key: true, visible: true, on_delete: :restrict, on_update: :restrict
+    #   t.time:start_time, :null => false
+    #   t.time:end_time, :null => false
 
-      t.timestamps
-    end
+    #   t.timestamps
+    # end
 
   end
 
