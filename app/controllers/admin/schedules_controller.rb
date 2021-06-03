@@ -1,17 +1,13 @@
 class Admin::SchedulesController < ApplicationController
   def index
     @schedules = Schedule.all
-    # @movies = Movie.select(:id, :name)
-
+    #メソッドでモデルに書く
     @movies_schedules = Movie.joins(:schedules).select('movies.*, schedules.start_time,schedules.end_time').order(start_time: :ASC)
+
   end
 
-  def show
-    # @movies = Movie.select(:id, :name)
-    @movies_schedules = Movie.joins(:schedules).select('movies.*, schedules.start_time,schedules.end_time').order(start_time: :ASC)
-    #スケジュールのidを表示する変数に持たせる
-    @schedule_id = Schedule.select(:id)
-    
+  def show  
+     @movies_schedules =   Schedule.where(movie_id: params[:id]).order(start_time: :ASC)
   end
 
   def new
@@ -21,8 +17,7 @@ class Admin::SchedulesController < ApplicationController
   def create
     @movie_record = Movie.find_by( params[:movie][:id])
     @schedules = @movie_record.schedules.create(start_time: params[:movie][:start_time], end_time: params[:movie][:end_time])
-    # @test2 = @movie_record.id  @test = Schedule.new(params[:schedule][:start_time])    
-    binding.pry
+  
     if @schedules.save
       redirect_to '/admin/schedules' ,notice: '上映スケジュールが作成されました'
     else
@@ -58,4 +53,5 @@ class Admin::SchedulesController < ApplicationController
        redirect_to "/admin/schedules/#{@schedule.id}/edit"
     end
   end
+
 end

@@ -1,0 +1,25 @@
+<h1>座席予約フォーム</h1>
+
+<%= form_for(date, url: sample_path, method: :post) do |f| %>
+        <%= f.hidden_field :id, :value => date.id %>
+         <!-- attendancesテーブルのidを渡す -->
+
+        <!--hiddenでパラメータで得た値の表示-->
+          <%= f.hidden_field :movie_id, :value => date.id %>
+           <%= f.hidden_field :schedule_id, :value => date.id %>
+
+            <%= f.hidden_field :sheet_id, :value => date.id %>
+             <%= f.hidden_field :date, :value => date.id %>
+
+                <!--フォームは名前とメールだけ-->
+              <%= f.text_field :name, :value => date.id %>]
+               <%= f.text_field :mail, :value => date.id %>
+        <!--
+         映画作品(movie_id)
+  - 上映スケジュール(schedule_id)
+  - 座席(sheet_id)
+  - 日付
+  - 予約者氏名
+  - 予約者メールアドレス: 
+        -->
+<% end %>

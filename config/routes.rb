@@ -23,10 +23,9 @@ Rails.application.routes.draw do
   get 'movies', to:'movies#index'
   get 'sheets', to:'sheets#index'
   get 'movies/:id', to:'movies#show'
-  # get 'movies/:movie_id/schedules/:schedule_id/sheets', to:''
-  
-
-  
+  get 'movies/:movie_id/schedules/:schedule_id/sheets', to:'sheets#reserve_sheets'
+  get '/movies/:movie_id/schedules/:schedule_id/reservations/new', to: 'reservations#new'
+  post 'movies/:movie_id', to:'reservations#create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

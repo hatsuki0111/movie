@@ -1,6 +1,25 @@
 <h1>映画作品詳細ページ</h1>
 
 
+<!--
+1週間先まで選択可能な日付のプルダウンメニュー
+  - 上映スケジュールリストから1つの時刻を選択するプルダウンメニュー
+  - 「座席を予約する」ボタン
+- 「座席を予約する」ボタンを押すと`/movies/:movie_id/schedules/:schedule_id/sheets`に飛ぶ
+このときクエリパラメータで日付を渡す
+-->
+
+ <%= form_with url: "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/sheets", method: :get, model: @schedule_id do |f|  %>
+
+ <%= f.select :date, (0..6).to_a.map {|i| [(Time.now + i.days).strftime("%m月%d日(#{%w(日 月 火 水 木 金 土)[(Time.now + i.days).wday]})")]}, {}, {:class => 'class'} %> 
+ 
+       <%= f.collection_select :schedules, @schedule_all, :id, :start_time_and_end_time,
+                               :prompt => "上映スケジュールを選択"%>
+     
+           <%= f.submit '座席を予約する'%>
+  <% end %>
+ 
+
 <table>
   <thead>
     <tr>

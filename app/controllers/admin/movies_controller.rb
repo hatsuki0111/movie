@@ -5,6 +5,7 @@ class Admin::MoviesController < ApplicationController
 
   def show
     @movie_id = Movie.where(id: params[:id])
+    
   end
 
   def new

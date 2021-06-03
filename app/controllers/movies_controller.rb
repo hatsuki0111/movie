@@ -10,13 +10,8 @@ class MoviesController < ApplicationController
   def show
     @movie_record = Movie.find(params[:id])
 
-    @schedules = @movie_record.schedules.order(start_time: :ASC)
-    # @movie_id = Movie.
-    #  @movie_id.schedules.find(params[:id])
-    #  current_user
-    # @schedules = Schedule.select(:start_time.:end_time).where(movie_id: @arams[:id]);
-
+    @schedules =  @movie_record.schedules.order(start_time: :ASC)
+    @schedule_id = Schedule.find_by(movie_id: params[:id])
+    @schedule_all = Schedule.all
   end
-
-
 end

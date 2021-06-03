@@ -8,15 +8,15 @@
     </tr>
   </thead>
  <tbody>
- <% @movies_schedules.zip(@schedule_id).each do |ms, sh_id| %>
+ <% @movies_schedules.each do |ms| %>
       <tr>
-      　<td><%= ms.id %></td>
-      　<td><%= ms.name %></td>
+      　<td><%= ms.movie_id %></td>
+      　<td><%= ms.movie.name %></td>
       </tr>
       <tr>
        <td><ul>
-       <%= link_to(sh_id.id,"/admin/schedules/#{sh_id.id}/edit") %>
-       <%= hidden_field_tag :id, sh_id.id %>
+       <%= link_to(ms.id,"/admin/schedules/#{ms.id}/edit") %>
+       <%= hidden_field_tag :id, ms.id %>
             <li><%= ms.start_time %></li>
             <li><%= ms.end_time %></li>
             </ul>

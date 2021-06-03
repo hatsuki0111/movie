@@ -17,4 +17,5 @@ class Movie < ApplicationRecord
          Movie.all
     end
   end
+
 end
