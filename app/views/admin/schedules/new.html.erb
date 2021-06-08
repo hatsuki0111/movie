@@ -1,19 +1,20 @@
 <h1>上映スケジュール登録</h1>
 <%= render 'layouts/flash_message' %>
-    <div>
+<div>
     <%= form_with url: admin_schedules_path(), model: @post do |post_schedules| %>
     <%= render 'layouts/error_message', model: post_schedules.object %>　
-    <%= post_schedules.hidden_field :id, :value => @post.id %><!--moviesテーブルのidを渡す-->
-        <div>
+    <%= post_schedules.hidden_field :id, :value => @post.id %>
+    <!--moviesテーブルのidを渡す-->
+    <div>
         <%= post_schedules.label :start_time, '開始時間' %>
         <%= post_schedules.time_field :start_time %><br />
-        </div>
+    </div>
 
-        <div>
+    <div>
         <%= post_schedules.label :end_time, '終了時間' %>
         <%= post_schedules.time_field :end_time %><br />
-        </div>
-
-        <%= post_schedules.submit '登録' %>
-    <% end %>
     </div>
+
+    <%= post_schedules.submit '登録' %>
+    <% end %>
+</div>

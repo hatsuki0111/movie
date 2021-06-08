@@ -1,6 +1,6 @@
 class CreateReservations < ActiveRecord::Migration[6.1]
   def change
-    create_table "reservations", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    create_table "reservations", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
       t.date "date", null: false
       t.integer "schedule_id", null: false
       t.bigint "sheet_id", null: false

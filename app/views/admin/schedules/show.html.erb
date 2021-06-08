@@ -1,27 +1,32 @@
 <h1>個別上映スケジュール表示</h1>
 
 <table>
-  <thead>
-    <tr>
-        <td><p>作品ID</p></td>
-        <th><h2>作品名</h2></th>
-    </tr>
-  </thead>
- <tbody>
- <% @movies_schedules.each do |ms| %>
-      <tr>
-      　<td><%= ms.movie_id %></td>
-      　<td><%= ms.movie.name %></td>
-      </tr>
-      <tr>
-       <td><ul>
-       <%= link_to(ms.id,"/admin/schedules/#{ms.id}/edit") %>
-       <%= hidden_field_tag :id, ms.id %>
-            <li><%= ms.start_time %></li>
-            <li><%= ms.end_time %></li>
-            </ul>
-        </td>
+    <thead>
+        <tr>
+            <td>
+                <p>作品ID</p>
+            </td>
+            <th>
+                <h2>作品名</h2>
+            </th>
         </tr>
-  </tbody>
-<% end %>
+    </thead>
+    <tbody>
+        <% @movies_schedules.each do |ms| %>
+        <tr>
+            　<td><%= ms.movie_id %></td>
+            　<td><%= ms.movie.name %></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <%= link_to(ms.id,"/admin/schedules/#{ms.id}/edit") %>
+                    <%= hidden_field_tag :id, ms.id %>
+                    <li><%= ms.start_time %></li>
+                    <li><%= ms.end_time %></li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+    <% end %>
 </table>

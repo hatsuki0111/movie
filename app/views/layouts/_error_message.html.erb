@@ -1,12 +1,12 @@
 <% if @post.errors.any? %>
- 
-  <div>
+
+<div>
     <ul>
-      <% @post.errors.full_messages.each do |message| %>
+        <% @post.errors.full_messages.each do |message| %>
         <li>
-        <%= message %>
+            <%= message %>
         </li>
-      <% end %>
+        <% end %>
     </ul>
-  </div>
+</div>
 <% end %>

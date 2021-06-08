@@ -1,25 +1,23 @@
 <h1>座席予約フォーム</h1>
+<%= render 'layouts/flash_message' %>
+<%= form_with url: "/movies/#{@movie_id}", method: :post, model: @post do |f|  %>
+<%= render 'layouts/error_message', model: f.object %>　
 
-<%= form_for(date, url: sample_path, method: :post) do |f| %>
-        <%= f.hidden_field :id, :value => date.id %>
-         <!-- attendancesテーブルのidを渡す -->
 
-        <!--hiddenでパラメータで得た値の表示-->
-          <%= f.hidden_field :movie_id, :value => date.id %>
-           <%= f.hidden_field :schedule_id, :value => date.id %>
 
-            <%= f.hidden_field :sheet_id, :value => date.id %>
-             <%= f.hidden_field :date, :value => date.id %>
+<!--hiddenでパラメータで得た値の表示-->
+<%= f.hidden_field :movie_id, :value => @movie_id %>映画作品
+<%= f.hidden_field :schedule_id, :value => @schedule_id %>上映スケジュール
 
-                <!--フォームは名前とメールだけ-->
-              <%= f.text_field :name, :value => date.id %>]
-               <%= f.text_field :mail, :value => date.id %>
-        <!--
-         映画作品(movie_id)
-  - 上映スケジュール(schedule_id)
-  - 座席(sheet_id)
-  - 日付
-  - 予約者氏名
-  - 予約者メールアドレス: 
-        -->
+<%= f.hidden_field :sheet_id, :value => @sheet_id %>座席
+<%= f.hidden_field :date, :value => @date %>日付<br>
+<br>
+<br>
+<br>
+
+<!--フォームは名前とメールだけ-->
+<%= f.text_field :name %>予約者名
+<%= f.text_field :mail %>予約者メールアドレス
+<%= f.submit '予約' %>
+
 <% end %>

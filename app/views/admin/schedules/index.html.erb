@@ -1,39 +1,44 @@
 <h1>上映スケジュール一覧表示</h1>
 
 <table>
-  <thead>
-    <tr>
-        <td><p>作品ID</p></td>
-        <th><h2>作品名</h2></th>
-    </tr>
-  </thead>
- <tbody>
- <% @movies_schedules.each do |ms| %>
-      <tr>
-      　<td><%= ms.id %></td>
-      　<td><%= ms.name %></td>
-      </tr>
-      <tr>
-       <td><ul>
-            <%= link_to("/admin/schedules/#{ms.id}") do %>
-            <li><%= ms.start_time %></li>
-            <li><%= ms.end_time %></li>
-            <% end %>
-            </ul>
-        </td>
+    <thead>
+        <tr>
+            <td>
+                <p>作品ID</p>
+            </td>
+            <th>
+                <h2>作品名</h2>
+            </th>
         </tr>
-  </tbody>
+    </thead>
+    <tbody>
+        <% @movies_schedules.each do |ms| %>
+        <tr>
+            　<td><%= ms.id %></td>
+            　<td><%= ms.name %></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <%= link_to("/admin/schedules/#{ms.id}") do %>
+                    <li><%= ms.start_time %></li>
+                    <li><%= ms.end_time %></li>
+                    <% end %>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
 
 
-<% end %>
+    <% end %>
 </table>
 <% @schedules.each do |sh| %>
-      <tr>
-        <td><%= sh.id %></td>
-        <td><%= sh.movie_id %></td>
-        <td><%= sh.start_time %></td>
-        <td><%= sh.end_time %></td>
-        <td><%= sh.updated_at %></td>
-        <td><%= sh.created_at %></td>
-      </tr>
+<tr>
+    <td><%= sh.id %></td>
+    <td><%= sh.movie_id %></td>
+    <td><%= sh.start_time %></td>
+    <td><%= sh.end_time %></td>
+    <td><%= sh.updated_at %></td>
+    <td><%= sh.created_at %></td>
+</tr>
 <% end %>

@@ -1,43 +1,41 @@
 <h1>show</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>タイトル</th>
-      <th>公開年</th>
-      <th>概要</th>
-      <th>画像</th>
-      <th>上映</th>
-      <th>登録日時</th>
-      <th>更新日時</th>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>公開年</th>
+            <th>概要</th>
+            <th>画像</th>
+            <th>上映</th>
+            <th>登録日時</th>
+            <th>更新日時</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% @movie_id.each do |mv| %>
+        </tr>
+    </thead>
+    <tbody>
+        <% @movie_id.each do |mv| %>
 
-      <tr>
-      　<td><%= mv.id %></td>
-        <td><%= mv.name %></td>
-        <td><%= mv.year %></td>
-        <td><%= mv.description %></td>
-        <td><%= image_tag mv.image_url %></td>
-        <td>
-        <%= link_to("/admin/schedules/#{mv.id}") do %>
-        <% if mv.is_showing = true %>
-            上映中
-        <% else %>
-            上映予定
-        <% end %> 
+        <tr>
+            　<td><%= mv.id %></td>
+            <td><%= mv.name %></td>
+            <td><%= mv.year %></td>
+            <td><%= mv.description %></td>
+            <td><%= image_tag mv.image_url %></td>
+            <td>
+                <%= link_to("/admin/schedules/#{mv.id}") do %>
+                <% if mv.is_showing = true %>
+                上映中
+                <% else %>
+                上映予定
+                <% end %>
+                <% end %>
+            </td>
+            <td><%= mv.created_at %></td>
+            <td><%= mv.updated_at %></td>
+        </tr>
+        <%= link_to("上映スケジュール登録","/admin/movies/#{mv.id}/schedules/new") %>
         <% end %>
-        </td>
-        <td><%= mv.created_at %></td>
-        <td><%= mv.updated_at %></td>
-      </tr>
-      <%= link_to("上映スケジュール登録","/admin/movies/#{mv.id}/schedules/new") %>
-    <% end %>
-  </tbody>
+    </tbody>
 </table>
-
-   

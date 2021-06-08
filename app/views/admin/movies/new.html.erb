@@ -1,35 +1,35 @@
 <h1>映画情報登録</h1>
 <%= render 'layouts/flash_message' %>
-    <div>
+<div>
     <%= form_with url: admin_movies_path, model: @post do |post| %>
     <%= render 'layouts/error_message', model: post.object %>　
 
-        <div>
+    <div>
         <%= post.label :name, 'タイトル' %>
         <%= post.text_field :name %><br />
-        </div>
+    </div>
 
-        <div>
+    <div>
         <%= post.label :year, '公開年' %>
         <%= post.text_field :year %><br />
-        </div>
+    </div>
 
-        <div>
+    <div>
         <%= post.label :description, '概要' %>
         <%= post.text_area :description %><br />
-        </div>
+    </div>
 
-        <div>
+    <div>
         <%= post.label :image_url, '画像URL' %>
         <%= post.text_field :image_url %><br />
-        </div>
+    </div>
 
-        <div>
+    <div>
         <%= post.label :is_showing, '上映' %>
         <%= post.check_box :is_showing %><br />
-        </div>
-
-
-        <%= post.submit '登録' %>
-    <% end %>
     </div>
+
+
+    <%= post.submit '登録' %>
+    <% end %>
+</div>

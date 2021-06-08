@@ -1,60 +1,60 @@
 <h1>映画一覧</h1>
 
 <%= form_with method: :get, local: true do |f| %>
-        <div>
-            <%= f.text_field :search %><br />
-        </div>
+<div>
+    <%= f.text_field :search %><br />
+</div>
 
 
-        <label>
-          <%= f.radio_button :is_showing, " " %>すべて
-        </label>
-        <label>
-          <%= f.radio_button :is_showing, "1" %>上映中
-        </label>
-        <label>
-          <%= f.radio_button :is_showing, "0" %>上映予定
-        </label>
+<label>
+    <%= f.radio_button :is_showing, " " %>すべて
+</label>
+<label>
+    <%= f.radio_button :is_showing, "1" %>上映中
+</label>
+<label>
+    <%= f.radio_button :is_showing, "0" %>上映予定
+</label>
 
-          <br />
-         <%= f.submit '検索' %>
+<br />
+<%= f.submit '検索' %>
 <% end %>
 <br />
 
 
 
 <table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>タイトル</th>
-      <th>公開年</th>
-      <th>概要</th>
-      <th>画像</th>
-      <th>上映</th>
-      <th>登録日時</th>
-      <th>更新日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |mv| %>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>公開年</th>
+            <th>概要</th>
+            <th>画像</th>
+            <th>上映</th>
+            <th>登録日時</th>
+            <th>更新日時</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @movies.each do |mv| %>
 
-      <tr>
-      　<td><%= mv.id %></td>
-        <td><%= mv.name %></td>
-        <td><%= mv.year %></td>
-        <td><%= mv.description %></td>
-        <td><%= image_tag mv.image_url %></td>
-        <td>
-        <% if mv.is_showing == true %>
-            上映中
-        <% else %>
-            上映予定
+        <tr>
+            　<td><%= mv.id %></td>
+            <td><%= mv.name %></td>
+            <td><%= mv.year %></td>
+            <td><%= mv.description %></td>
+            <td><%= image_tag mv.image_url %></td>
+            <td>
+                <% if mv.is_showing == true %>
+                上映中
+                <% else %>
+                上映予定
+                <% end %>
+            </td>
+            <td><%= mv.created_at %></td>
+            <td><%= mv.updated_at %></td>
+        </tr>
         <% end %>
-        </td>
-        <td><%= mv.created_at %></td>
-        <td><%= mv.updated_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    </tbody>
 </table>
