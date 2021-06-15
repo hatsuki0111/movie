@@ -2,168 +2,177 @@
 
 <h2>スクリーン</h2>
 <%= render 'layouts/flash_message' %><br>
-<%
-=begin%>
- 
-<table>
-    <tbody>
-        <% @sheets.each_slice(5) do |sh1 ,sh2,sh3,sh4,sh5| %>
-        <tr>
-            <td><%= "|"+"#{sh1.row}"%></td>
-            <td>
-                <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new") do %>
-                <%= "#{sh1.column}" +"|"%>
-                <% end %>
-            </td>
-            <td><%= "|"+"#{sh2.row}"%></td>
-            <td>
-                <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new") do %>
-                <%= "#{sh2.column}"+"|"%>
-                <% end %>
-            </td>
-            <td><%= "|"+"#{sh3.row}"%></td>
-            <td>
-                <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new") do %>
-                <%= "#{sh3.column}"+"|"%>
-                <% end %>
-            </td>
-            <td> <%= "|"+"#{sh4.row}"%></td>
-            <td>
-                <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new") do %>
-                <%= "#{sh4.column}"+"|"%>
-                <% end %>
-            </td>
-            <td><%= "|"+"#{sh5.row}"%></td>
-            <td>
-                <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new") do %>
-                <%= "#{sh5.column}"+"|"%>
-                <%= hidden_field_tag :date, @date %>
-                <% end %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-
-
-<table>
-    <tbody>
-        <% @sheets.each do |sh| %>
-        <tr>
-            <td>
-                <%= sh.row %>
-                <%= sh.column %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table> 
-<%
-=end%>
-
 
 
 <tbody>
       <tr>
-       
         <td><%= @sheets[0].row %></td>
       
-         <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[0].id}" do %>
-        <td><%= @sheets[0].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[0] == false %>
+             <td><%= @sheets[0].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[0].id}" do %>
+                <td><%= @sheets[0].column %></td>
+            <% end %>
+        <% end %>
+
          
         <td><%= @sheets[1].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[1].id}") do %>
-        <td><%= @sheets[1].column %></td>
-         <% end %>
+           
+        <% if  @sheet_enable_arrays[1] == false  %>
+             <td><%= @sheets[1].column%></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[1].id}" do %>
+                <td><%= @sheets[1].column %></td>
+            <% end %>
+        <% end %>
+
          
         <td><%= @sheets[2].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[2].id}") do %>
-        <td><%= @sheets[2].column %></td>
-         <% end %>
-        
+          
+        <% if  @sheet_enable_arrays[2] == false %>
+             <td><%= @sheets[2].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[2].id}" do %>
+                <td><%= @sheets[2].column %></td>
+            <% end %>
+        <% end %>
+
+
         <td><%= @sheets[3].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[3].id}") do %>
-        <td><%= @sheets[3].column %></td>
-         <% end %>
+          
+        <% if  @sheet_enable_arrays[3] == false  %>
+             <td><%= @sheets[3].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[3].id}" do %>
+                <td><%= @sheets[3].column %></td>
+            <% end %>
+        <% end %>
+
          
         <td><%= @sheets[4].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[4].id}") do %>
-        <td><%= @sheets[4].column %></td>
-         <% end %>
+          
+        <% if  @sheet_enable_arrays[4] == false  %>
+             <td><%= @sheets[4].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[4].id}" do %>
+                <td><%= @sheets[4].column %></td>
+            <% end %>
+        <% end %>
+
       </tr>
       <br>
       <tr> 
      
         <td><%= @sheets[5].row %></td>
         
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[5].id}") do %>
-        <td><%= @sheets[5].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[5] == false  %>
+             <td><%= @sheets[5].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[5].id}" do %>
+                <td><%= @sheets[5].column %></td>
+            <% end %>
+        <% end %>
          
         <td><%= @sheets[6].row %></td>
         
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[6].id}") do %>
-        <td><%= @sheets[6].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[6] == false  %>
+             <td><%= @sheets[6].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[6].id}" do %>
+                <td><%= @sheets[6].column %></td>
+            <% end %>
+        <% end %>
          
         <td><%= @sheets[7].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[7].id}") do %>
-        <td><%= @sheets[7].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[7] == false  %>
+             <td><%= @sheets[7].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[7].id}" do %>
+                <td><%= @sheets[7].column %></td>
+            <% end %>
+        <% end %>
          
         <td><%= @sheets[8].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[8].id}") do %>
-        <td><%= @sheets[8].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[8] == false  %>
+             <td><%= @sheets[8].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[8].id}" do %>
+                <td><%= @sheets[8].column %></td>
+            <% end %>
+        <% end %>
         
         <td><%= @sheets[9].row %></td>
          
-         <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[9].id}") do %>
-        <td><%= @sheets[9].column %></td>
-         <% end %>
+        <% if  @sheet_enable_arrays[9] == false  %>
+             <td><%= @sheets[9].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[9].id}" do %>
+                <td><%= @sheets[9].column %></td>
+            <% end %>
+        <% end %>
          
       </tr>
       <br>
       <tr>
        <td><%= @sheets[10].row %></td>
 
-        <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[10].id}") do %>
-       <td><%= @sheets[10].column %></td>
+        <% if  @sheet_enable_arrays[10] == false  %>
+             <td><%= @sheets[10].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[10].id}" do %>
+                <td><%= @sheets[10].column %></td>
+            <% end %>
         <% end %>
 
       
        <td><%= @sheets[11].row %></td>
 
-        <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[11].id}") do %>
-       <td><%= @sheets[11].column %></td>
+        <% if  @sheet_enable_arrays[11] == false  %>
+             <td><%= @sheets[11].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[11].id}" do %>
+                <td><%= @sheets[11].column %></td>
+            <% end %>
         <% end %>
 
         
        <td><%= @sheets[12].row %></td>
 
-        <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[12].id}") do %>
-       <td><%= @sheets[12].column %></td>
+        <% if  @sheet_enable_arrays[12] == false  %>
+             <td><%= @sheets[12].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[12].id}" do %>
+                <td><%= @sheets[12].column %></td>
+            <% end %>
         <% end %>
 
         
        <td><%= @sheets[13].row %></td>
 
-        <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[13].id}") do %>
-       <td><%= @sheets[13].column %></td>
+        <% if  @sheet_enable_arrays[13] == false  %>
+             <td><%= @sheets[13].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[13].id}" do %>
+                <td><%= @sheets[13].column %></td>
+            <% end %>
         <% end %>
 
         
        <td><%= @sheets[14].row %></td>
 
-        <%= link_to("/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new?date=#{@date}&sheet_id=#{@sheets[14].id}") do %>
-       <td><%= @sheets[14].column %></td>
+        <% if  @sheet_enable_arrays[14] == false  %>
+             <td><%= @sheets[14].column %></td>
+        <% else %>
+            <%= link_to "/movies/#{@schedule_id.movie_id}/schedules/#{@schedule_id.id}/reservations/new/?date=#{@date}&sheet_id=#{@sheets[14].id}" do %>
+                <td><%= @sheets[14].column %></td>
+            <% end %>
         <% end %>
       </tr>
       <br>

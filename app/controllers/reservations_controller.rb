@@ -19,8 +19,7 @@ class ReservationsController < ApplicationController
     @puted.name = params[:reservation][:name]
     @puted.email = params[:reservation][:mail].downcase
   
-
-    # @week = %w(日 月 火 水 木 金 土)[@puted.date.wday]
+    
     if Reservation.exists?(schedule_id: @puted.schedule_id, sheet_id: @puted.sheet_id)
       redirect_to "/movies/#{@movie_id}/schedules/#{@puted.schedule_id}/sheets?date=#{params[:reservation][:date]}",notice: 'その座席はすでに予約済みです'
     elsif @puted.save
@@ -32,5 +31,3 @@ class ReservationsController < ApplicationController
   end
 end
 
-# 送信時にすでに同じスケジュールの同じ座席に予約があったら「その座席はすでに予約済みです」と表示し、
-# `/movies/:movie_id/schedules/:schedule_id/sheets?date=YYYY-MM-DD` に飛ばす
